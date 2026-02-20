@@ -25,3 +25,29 @@ public class GrocerySystem {
         itemStocks[2] = 12;
     }
 }
+
+/**
+* Nick Reyes Task 1: Inventory Display
+* Program displays items in inventory that are not empty
+* @param names array for item names
+* @param prices array for item prices 
+* @param stocks array for item stock amounts
+*/
+
+public static void printInventory(String[] names, double [] prices, int[] stocks)
+{
+    System.out.println("Inventory:");
+
+    //Required for loop for display
+    for(int i = 0; i < names.length; i++) {
+        if(names[i] != null) {
+
+            System.out.println("Item: " + names[i] + ", Price: $" +
+                prices[i] + ", Stock: " + stocks[i]);
+
+        }else {
+
+            }
+        }
+    }
+}
