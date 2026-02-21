@@ -1,10 +1,12 @@
+import java.util.Scanner;
 /**
  * Program that manages grocery items with parallel arrays.
  */
 public class GrocerySystem {
 
     /**
-     * Builds initial inventory.
+     * Builds initial inventory and runs user menu.
+     * @param args command line arguments
      */
     public static void main(String[] args) {
 
@@ -54,7 +56,7 @@ public class GrocerySystem {
         }
         scanner.close();
     }
-}
+
 
 /**
 * Nick Reyes Task 1: Inventory Display
@@ -78,6 +80,33 @@ public static void printInventory(String[] names, double [] prices, int[] stocks
         }else {
 
             }
+        }
+    }
+
+        /**
+     * Andre Henriques Task 2: Restock and Search
+     * Finds an item and increases its stock.
+     * @param names array for item names
+     * @param stocks array for item stock amounts
+     * @param target item to restock
+     * @param amount amount to add
+     */
+    public static void restockItem(String[] names, int[] stocks, String target, int amount)
+    {
+        boolean found = false;
+
+        for(int i = 0; i < names.length; i++) {
+            if(names[i] != null && names[i].equalsIgnoreCase(target)) {
+                stocks[i] += amount;
+                System.out.println("Restocked " + names[i] + 
+                    ". New stock: " + stocks[i]);
+                found = true;
+                break;
+            }
+        }
+
+        if(!found) {
+            System.out.println("Item not found.");
         }
     }
 }
