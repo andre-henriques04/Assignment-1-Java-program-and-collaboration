@@ -23,6 +23,36 @@ public class GrocerySystem {
         itemNames[2] = "Eggs";
         itemPrices[2] = 3.50;
         itemStocks[2] = 12;
+        
+        Scanner scanner = new Scanner(System.in);
+        int choice = 0;
+
+        while (choice != 3) {
+            System.out.println("1. View");
+            System.out.println("2. Restock");
+            System.out.println("3. Exit");
+
+            choice = scanner.nextInt();
+
+            if (choice == 1) {
+                printInventory(itemNames, itemPrices, itemStocks);
+            } 
+            else if (choice == 2) {
+                System.out.println("Which item would you like to restock?: ");
+                String target = scanner.next();
+                System.out.println("How many are you restocking?: ");
+                int amount = scanner.nextInt(); 
+                restockItem(itemNames, itemStocks, target, amount);
+            } 
+            else if (choice == 3) {
+                System.out.println("Exiting program.");
+                break;
+            } 
+            else {
+                System.out.println("Please enter either 1, 2 or 3. Try again.");
+            }
+        }
+        scanner.close();
     }
 }
 
